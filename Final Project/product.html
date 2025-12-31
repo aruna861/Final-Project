@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="product.css">
+    <title>Document</title>
+</head>
+<body>
+    
+<h1 class="class">View All Product And Devices</h1>
+    <ul id="itemList">
+    <li><a href="Smartphone.html"><i class="fa-solid fa-mobile-screen-button"></i> Smartphone</a></li>
+    <li><a href="Laptop.html"><i class="fa-solid fa-laptop"></i> Laptop</li></a>
+    <li><a href="Tablet.html"><i class="fa-solid fa-tablet-screen-button"></i> Tablet</li></a>
+    <li><a href="Smart_Watch.html"><i class="fa-solid fa-stopwatch"></i> Smartwatch</li></a>
+    <li><a href="Headset.html"><i class="fa-solid fa-headphones"></i> Headphones</a></li>
+    <li><a href="Camera.html"><i class="fa-solid fa-camera"></i> Camera</li></a>
+    <li><a href="Bluetooth_spe.html"><i class="fa-solid fa-volume-high"></i> Bluetooth Speaker</li></a>
+    <li><a href="Gaming_Consoles.html"><i class="fa-solid fa-gamepad"></i> Gaming Console</li></a>
+    <li><a href="Wireless_Chargers.html"><i class="fa-solid fa-bolt"></i> Wireless Charger</li></a>
+    <li><a href="Fitness_Tracker.html"><i class="fa-solid fa-heart-pulse"></i> Fitness Tracker</li></a>
+</ul>
+<script>
+// Wait for the page to load
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Find your Pay/Buy button
+    const buyBtn = document.querySelector('.buy');
+
+    if (buyBtn) {
+        buyBtn.addEventListener('click', (e) => {
+            // 2. Define the product details
+            const orderData = {
+                id: "GXY-" + Math.floor(Math.random() * 90000 + 10000), // Random ID
+                name: "Galaxy Premium Tech", 
+                price: "$1,299.00",
+                date: new Date().toLocaleDateString('en-GB'), // e.g. 31/12/2025
+                status: "Confirmed"
+            };
+
+            // 3. Get existing orders from memory (or empty array if none)
+            let currentOrders = JSON.parse(localStorage.getItem('userOrders')) || [];
+
+            // 4. Add the new order to the START of the list
+            currentOrders.unshift(orderData);
+
+            // 5. Save back to memory
+            localStorage.setItem('userOrders', JSON.stringify(currentOrders));
+
+            // 6. Optional: Alert and Redirect
+            alert("Order Placed Automatically!");
+            window.location.href = 'orders.html'; 
+        });
+    }
+});
+document.querySelector('.buy').addEventListener('click', function() {
+    // 1. Create the Order Object
+    const newOrder = {
+        id: "ORD-" + Math.floor(Math.random() * 9000 + 1000),
+        name: "Galaxy Tech Premium",
+        price: "$1,299.00",
+        date: new Date().toLocaleDateString(),
+        status: "Confirmed"
+    };
+
+    // 2. Get existing orders from LocalStorage
+    // We use the key 'userOrders' - this MUST match on both pages
+    let orders = JSON.parse(localStorage.getItem('userOrders')) || [];
+
+    // 3. Add the new order to the list
+    orders.unshift(newOrder);
+
+    // 4. Save it back to the browser memory
+    localStorage.setItem('userOrders', JSON.stringify(orders));
+
+    // 5. Success message
+    alert("Payment Successful! Redirecting to orders...");
+    window.location.href = "orders.html"; // Move to the orders page
+});
+window.location.href =
+  `Billing.html?item=Galaxy+S23&price=299000`;
+
+</script>
+    </body>
+    </html>
+    

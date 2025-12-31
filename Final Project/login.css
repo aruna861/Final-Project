@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right,#e2e2e2, #c9d6ff);
+    color: #333;
+}
+.container{
+    margin: 0 15px;
+}
+.form-box{
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-sizing: 0 0 10px rgba(0,0,0,0.1);
+    display: none;
+}
+.form-box.active{
+    display: block;
+}
+h2{
+    font-size: 34px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+input{
+    width: 100%;
+    padding: 12px;
+    background: #eee;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+button{
+    width: 100%;
+    padding: 12px;
+    background: #7494ec;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 20px;
+    transition: 0.5s;
+}
+button:hover{
+    background-color: #6884d3;
+}
+p{
+    font-size: 14.5px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+p a{
+    color: #7494ec;
+    text-decoration: none;
+}
+p a:hover{
+    text-decoration: underline;
+}
+.social-login {
+    text-align: center;
+    margin-top: 10px;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+.social-login .icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 24px;
+    margin-top: 10px;
+}
+.social-login i {
+    cursor: pointer;
+    transition: 0.3s;
+}
+.fa-google { color: #db4437; }
+.fa-facebook { color: #4267B2; }
+.fa-apple { color: #000; }
+
+.social-login i:hover {
+    transform: scale(1.2);
+}
+
+.toast-container {
+    position: fixed;
+    top: 20px;
+    right: -400px;
+    background: #ffffff;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+    border-left: 6px solid #28a745;
+}
+
+.toast-container.active {
+    right: 20px;
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+}
+
+.toast-content i {
+    color: #28a745;
+    font-size: 20px;
+    margin-right: 12px;
+}
+
+.toast-content span {
+    color: #333;
+    font-weight: 500;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #eee;
+}
+
+.progress-bar::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: #28a745;
+}
+
+.toast-container.active .progress-bar::before {
+    animation: progress 3s linear forwards;
+}
+
+@keyframes progress {
+    100% { width: 0%; }
+}
+
+.toast-box {
+    position: fixed;
+    top: 25px;
+    right: -450px;
+    background: rgba(11, 11, 26, 0.9);
+    backdrop-filter: blur(8px);
+    color: #ffb400;
+    padding: 20px 35px;
+    border-radius: 10px;
+    border-left: 5px solid #ffb400;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+    z-index: 10000;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.toast-box.active { right: 25px; }
+
+.toast-content { display: flex; align-items: center; gap: 15px; font-weight: bold; }
+
+.toast-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: rgba(255, 180, 0, 0.2);
+}
+
+.toast-progress::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background: #ffb400;
+    animation: toast-load 3s linear forwards;
+}
+
+@keyframes toast-load { 100% { width: 0%; } }

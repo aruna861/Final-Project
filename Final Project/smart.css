@@ -1,0 +1,270 @@
+/* Add this at the very top of your smart.css file */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Topbar / Navigation --- */
+
+
+@media (max-width: 768px) {
+    .topbar {
+        padding: 15px 20px;
+        justify-content: space-between;
+    }
+
+    .search-container {
+        flex: 0 0 100%; /* Take full width on mobile */
+        order: 5; /* Move search bar to the bottom */
+        margin: 15px 0 0 0;
+    }
+
+    .nav-links {
+        display: none; /* Usually, nav links are hidden in a menu on mobile */
+    }
+    
+    .brand {
+        font-size: 1rem;
+    }
+
+    .login-btn, .signup-btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+@media (max-width: 768px) {
+    .topbar {
+        padding: 15px 20px;
+        flex-direction: column; /* Stacks elements vertically */
+        gap: 15px;
+    }
+
+    .nav-links {
+        display: flex; /* Ensures links stay visible */
+        padding: 0;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .search-container {
+        flex: 0 0 100%;
+        margin: 0;
+        order: 2; /* Positions search bar between brand and links */
+    }
+
+    .brand {
+        font-size: 1.2rem;
+    }
+
+    .actions {
+        width: 100%;
+        justify-content: center;
+    }
+}
+/* --- Product Grid Layout --- */
+.product-listing-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 50px;
+    max-width: 1400px;
+}
+
+/* --- Product Card Styling --- */
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 4px solid transparent; /* Hidden border for hover effect */
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    border-bottom: 4px solid #cc0000; /* Red accent line on hover */
+}
+
+.product-image img {
+    max-width: 100%;
+    height: 250px;
+    object-fit: contain; /* Keeps phone aspect ratios perfect */
+    margin-bottom: 20px;
+}
+
+.product-info h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.price-range {
+    font-weight: 700;
+    color: #444;
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+/* --- View Button --- */
+.view {
+    width: 100%;
+    padding: 10px;
+    background: white;
+    border: 2px solid #ffb400;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.view:hover {
+    background: #ffb400;
+}
+
+.view a {
+    display: block;
+    font-weight: 600;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    --gold: #d4af37;
+    --dark: #0a0a0a;
+}
+
+body { margin: 0; background: #f4f4f4; }
+
+.premium-header {
+    background: var(--dark);
+    padding: 15px 0; /* Slightly reduced padding for mobile */
+    font-family: 'Inter', sans-serif;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+
+/* 1. Logo Section */
+.brand-logo {
+    font-size: clamp(16px, 4vw, 20px); /* Fluid typography */
+    font-weight: 700;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+.brand-tech { color: #ffffff; }
+.brand-galaxy { color: var(--gold); }
+
+/* 2. Navigation */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: clamp(15px, 3vw, 45px); /* Dynamic gap */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    position: relative;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--gold);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after { width: 100%; }
+
+/* 3. Utility & Socials */
+.header-utility {
+    display: flex;
+    gap: 15px;
+}
+
+.utility-item {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.utility-item:hover {
+    background: var(--gold);
+    color: var(--dark);
+}
+
+/* --- MOBILE RESPONSIVENESS --- */
+
+@media (max-width: 1024px) {
+    .header-utility { display: none; } /* Hide utility buttons on tablets/phones */
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        position: fixed;
+        top: 60px; /* Adjust based on header height */
+        left: 0;
+        width: 100%;
+        background: var(--dark);
+        padding: 20px 0;
+        display: none; /* Hidden by default */
+        border-top: 1px solid #222;
+    }
+    
+    .main-nav.active {
+        display: block; /* Show when toggled */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    /* Mobile Menu Toggle (Hamburger) */
+    .menu-toggle {
+        display: block;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 769px) {
+    .menu-toggle { display: none; }
+}

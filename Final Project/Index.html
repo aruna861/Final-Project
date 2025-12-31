@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Tech Galaxy - Home</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+   
+</head>
+<body>
+     <video autoplay loop muted players-inline class="backround-clip">
+    <source src="Virtual City Animation (1).mp4" type="video/mp4">
+</video>
+   <div class="topbar">
+        <div class="brand">Tech Galaxy</div>
+       <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search for items..." onkeyup="filterItems()">
+    <ul id="itemList" style="list-style: none; margin-top: 10px; display: none;">
+        <li data-url="product.html" style="color: #ffb400;">Products</li>
+        <li data-url="Smartphone.html" style="color: #ffb400;">Smartphones</li>
+        <li data-url="Phones/iPhone 17 Pro Max.html" style="color: #ffb400;">IPhone 17 Pro Max</li>
+        <li data-url="Phones/Samsung S25 Ultra.html" style="color: #ffb400;">Samsung S25 Ultra</li>
+        <li data-url="Phones/Xiaomi Redmi 15 5G.html" style="color: #ffb400;">Xiaomi Redmi 15 5G</li>
+        <li data-url="Phones/Iphone17.html" style="color: #ffb400;">IPhone 17a</li>
+        <li data-url="Phones/Samsung S24Ulra.html" style="color: #ffb400;">Samsung S24 Ultra</li>
+        <li data-url="Phones/Redmi A5 4G.html" style="color: #ffb400;">Redmi A5 4G</li>
+        <li data-url="Phones/Iphone 16 Pro Max.html" style="color: #ffb400;">Iphone 16 Pro Max</li>
+        <li data-url="Phones/Samsung Galaxy A56 Ultra.html" style="color: #ffb400;">Samsung Galaxy A56 Ultra</li>
+        <li data-url="Phones/Xiaomi Redmi Note 14 5G.html" style="color: #ffb400;">Xiaomi Redmi Note 14 5G</li>
+        <li data-url="Phones/Iphone 16.html" style="color: #ffb400;">Iphone 16</li>
+        <li data-url="Phones/Samsung Galaxy A36.html" style="color: #ffb400;">Samsung Galaxy A36</li>
+        <li data-url="Phones/Xiaomi Redmi 15C 4G.html" style="color: #ffb400;">Xiaomi Redmi 15C 4G</li>    
+        <li data-url="Laptop.html" style="color: #ffb400;">Laptops</li>
+        <li data-url="laptop/Acer Predator Helios 16.html" style="color: #ffb400;">Acer Predator Helios</li>
+        <li data-url="laptop/ASUS ROG Zephyrus G16.html" style="color: #ffb400;">Asus Rog Zephyrus G16</li>
+        <li data-url="laptop/ASUS Vivobook Go 15.html" style="color: #ffb400;">Asus Vivobook Go 15</li>
+        <li data-url="laptop/Dell XPS 15 OLED.html" style="color: #ffb400;">Dell XPS 15 OLED</li>
+        <li data-url="laptop/HP Victus 15 Gaming.html" style="color: #ffb400;">HP Victus 15 Gaming</li>
+        <li data-url="laptop/Lenovo Legion Slim 5.html" style="color: #ffb400;">Lenovo Legion Slim 5</li>
+        <li data-url="laptop/MacBook Air M2 13.html" style="color: #ffb400;">MacBook Air M2 13</li>
+        <li data-url="laptop/MacBook Pro M3 Max.html" style="color: #ffb400;">MacBook Pro M3 Max</li>
+        <li data-url="laptop/Microsoft Surface Laptop 5.html" style="color: #ffb400;">Microsoft Surface Laptop 5</li>
+        <li data-url="laptop/MSI Katana 17 B13V.html" style="color: #ffb400;">MSI Katana 17 B13V</li>
+        <li data-url="laptop/Samsung Galaxy Book 4 Ultra.html" style="color: #ffb400;">Samsung Galaxy Book 4 Ultra</li>
+        <li data-url="laptop/Xiaomi Mi Notebook Pro.html" style="color: #ffb400;">Xiaomi Mi Notebook Pro</li>
+        <li data-url="Headset.html" style="color: #ffb400;">Headsets</li>
+        <li data-url="Headset/Apple AirPods Max.html" style="color: #ffb400;">Apple AirPods Max</li>
+        <li data-url="Headset/Audio-Technica M50xBT2.html" style="color: #ffb400;">Audio-Technica M50xBT2</li>
+        <li data-url="Headset/Bose QuietComfort Ultra.html" style="color: #ffb400;">Bose QuietComfort Ultra</li>
+        <li data-url="Headset/Corsair HS80 RGB Wireless.html" style="color: #ffb400;">Corsair HS80 RGB Wireless</li>
+        <li data-url="Headset/HyperX Cloud III Wireless.html" style="color: #ffb400;">HyperX Cloud III Wireless</li>
+        <li data-url="Headset/JBL Quantum 810 Wireless.html" style="color: #ffb400;">JBL Quantum 810 Wireless Headset</li>
+        <li data-url="Headset/Logitech G Pro X 2 Lightspeed.html" style="color: #ffb400;">Logitech G Pro X 2 Lightspeed</li>
+        <li data-url="Headset/Marshall Monitor II A.N.C.html" style="color: #ffb400;">Marshall Monitor II A.N.C</li>
+        <li data-url="Headset/Razer BlackShark V2 Pro.html" style="color: #ffb400;">Razer BlackShark V2 Pro</li>
+        <li data-url="Headset/Sennheiser HD 660S2 Studio.html" style="color: #ffb400;">Sennheiser HD </li>
+        <li data-url="Headset/Sony WH-1000XM5 ANC.html" style="color: #ffb400;">Sony WH-10000XM5</li>
+        <li data-url="Headset/SteelSeries Arctis Nova Pro.html" style="color: #ffb400;">SteelSeries Arctis Nova Pro</li>
+        <li data-url="Gaming_Consoles.html" style="color: #ffb400;">Gaming Consoles</li>
+        <li data-url="Gaming_con/ASUS ROG Ally X Handheld.html" style="color: #ffb400;">Asus Rog Ally X Handheld</li>
+        <li data-url="Gaming_con/Lenovo Legion Go Handheld.html" style="color: #ffb400;">Lenovo Legion Go Handheld</li>
+        <li data-url="Gaming_con/MSI Claw A1M Handheld PC.html" style="color: #ffb400;">MSI Claw A1M Handheld PC</li>
+        <li data-url="Gaming_con/Nintendo Switch Lite.html" style="color: #ffb400;">Nintendo Switch Lite</li>
+        <li data-url="Gaming_con/Nintendo Switch OLED Edition.html" style="color: #ffb400;">Nintendo Switch OLED Edition</li>
+        <li data-url="Gaming_con/PlayStation 5 Pro.html" style="color: #ffb400;">PlayStation 5 Pro</li>
+        <li data-url="Gaming_con/PlayStation 5 Slim (Disc Edition).html" style="color: #ffb400;">PlayStation 5 Slim (Disc Edition)</li>
+        <li data-url="Gaming_con/PlayStation Portal Remote Player.html" style="color: #ffb400;">PlayStation Portal Remote Player</li>
+        <li data-url="Gaming_con/Retroid Pocket 4 Pro (Retro).html" style="color: #ffb400;">Retroid Pocket 4 Pro (Retro)</li>
+        <li data-url="Gaming_con/Steam Deck OLED.html" style="color: #ffb400;">Steam Deck OLED</li>
+        <li data-url="Gaming_con/Xbox Series S (512GB SSD).html" style="color: #ffb400;">Xbox Series S</li>
+        <li data-url="Gaming_con/Xbox Series X.html" style="color: #ffb400;">Xbox Series X</li>
+        <li data-url="Smart_Watch.html" style="color: #ffb400;">Smart Watchs</li>
+        <li data-url="Smart_Watches/Amazfit GTR 4.html" style="color: #ffb400;">Amazfit GTR 4</li>
+        <li data-url="Smart_Watches/Apple Watch Series 10.html" style="color: #ffb400;">Apple Watch Series 10</li>
+        <li data-url="Smart_Watches/Apple Watch Ultra 2.html" style="color: #ffb400;">Apple Watch Ultra 2</li>
+        <li data-url="Smart_Watches/CMF by Nothing Watch Pro 2.html" style="color: #ffb400;">Nothing Watch Pro 2</li>
+        <li data-url="Smart_Watches/Fitbit Sense 2 Health Tracker.html" style="color: #ffb400;">Fitbit Sense 2 Health Tracker</li>
+        <li data-url="Smart_Watches/Garmin Fenix 7 Sapphire Solar.html" style="color: #ffb400;">Garmin Fenix 7 Sapphire Solar</li>
+        <li data-url="Smart_Watches/Google Pixel Watch 3.html" style="color: #ffb400;">Google Pixel Watch 3</li>
+        <li data-url="Smart_Watches/Huawei Watch GT 4.html" style="color: #ffb400;">Huawei Watch GT 4</li>
+        <li data-url="Smart_Watches/Redmi Watch 4.html" style="color: #ffb400;">Redmi Watch 4</li>
+        <li data-url="Smart_Watches/Samsung Galaxy Watch 7.html" style="color: #ffb400;">Samsung Galaxy Watch 7</li>
+        <li data-url="Smart_Watches/Samsung Galaxy Watch Ultra.html" style="color: #ffb400;">Samsung Galaxy Watch Ultra</li>
+        <li data-url="Smart_Watches/Xiaomi Watch S3.html" style="color: #ffb400;">Xiaomi Watch S3</li>
+        <li data-url="Tablet.html" style="color: #ffb400;">Tables</li>
+        <li data-url="Tablet/Google Pixel Tablet + Dock.html" style="color: #ffb400;">/Google Pixel Tablet</li>
+        <li data-url="Tablet/Huawei MatePad Pro 11.html" style="color: #ffb400;">Huawei MatePad Pro 11</li>
+        <li data-url="Tablet/iPad Air 11.html" style="color: #ffb400;">iPad Air 11</li>
+        <li data-url="Tablet/iPad Mini 6th Gen.html" style="color: #ffb400;">iPad Mini</li>
+        <li data-url="Tablet/iPad Pro 13.html" style="color: #ffb400;">iPad Pro 13</li>
+        <li data-url="Tablet/Lenovo Tab P12.html" style="color: #ffb400;">Lenovo Tab P12</li>
+        <li data-url="Tablet/Microsoft Surface Pro 9.html" style="color: #ffb400;">Microsoft Surface Pro 9</li>
+        <li data-url="Tablet/OnePlus Pad (8GB RAM).html" style="color: #ffb400;">OnePlus Pad</li>
+        <li data-url="Tablet/Redmi Pad SE (8GB).html" style="color: #ffb400;">Redmi Pad SE </li>
+        <li data-url="Tablet/Samsung Galaxy Tab A9+.html" style="color: #ffb400;">Samsung Galaxy Tab A9+</li>
+        <li data-url="Tablet/Samsung Galaxy Tab S9 Ultra.html" style="color: #ffb400;">Samsung Galaxy Tab S9 Ultra </li>
+        <li data-url="Tablet/Xiaomi Pad 6 Pro.html" style="color: #ffb400;">Xiaomi Pad 6 Pro</li>
+        <li data-url="Wireless_Chargers.html" style="color: #ffb400;">Wireless Chargers</li>
+        <li data-url="Wireless/Anker MagGo 8-in-1 Station.html" style="color: #ffb400;">Anker MagGo 8-in-1 Station</li>
+        <li data-url="Wireless/Apple MagSafe Charger (15W).html" style="color: #ffb400;">Apple MagSafe Charger (15W)</li>
+        <li data-url="Wireless/Belkin Pro 3-in-1 MagSafe.html" style="color: #ffb400;">Belkin Pro 3-in-1 MagSafe</li>
+        <li data-url="Wireless/ESR HaloLock MagSafe Car.html" style="color: #ffb400;">ESR HaloLock MagSafe Car</li>
+        <li data-url="Wireless/IKEA Under-table Charger.html" style="color: #ffb400;">IKEA Under-table Charger</li>
+        <li data-url="Wireless/Mophie 15W Universal Pad.html" style="color: #ffb400;">Mophie 15W Universal Pad</li>
+        <li data-url="Wireless/Nomad Leather Base Station.html" style="color: #ffb400;">Nomad Leather Base Station</li>
+        <li data-url="Wireless/OtterBox OtterSpot System.html" style="color: #ffb400;">OtterBox OtterSpot System</li>
+        <li data-url="Wireless/Samsung 15W Wireless Duo.html" style="color: #ffb400;">Samsung 15W Wireless Duo</li>
+        <li data-url="Wireless/Satechi Trio Wireless Pad.html" style="color: #ffb400;">Satechi Trio Wireless Pad</li>
+        <li data-url="Wireless/Spigen ArcField Wireless.html" style="color: #ffb400;">Spigen ArcField Wireless</li>
+        <li data-url="Wireless/Xiaomi 50W Super Fast Stand.html" style="color: #ffb400;">Xiaomi 50W Super Fast Stand</li>
+        <li data-url="Fitness_Tracker.html" style="color: #ffb400;">Fitness Tracker</li>
+        <li data-url="Fit/Amazfit Band 7 (18-Day Battery).html" style="color: #ffb400;">Amazfit Band 7</li>
+        <li data-url="Fit/Coros POD 2 (Running Form).html" style="color: #ffb400;">Coros POD 2</li>
+        <li data-url="Fit/Fitbit Charge 6 (GPS + ECG).html" style="color: #ffb400;">Fitbit Charge 6</li>
+        <li data-url="Fit/Fitbit Luxe Special Edition.html" style="color: #ffb400;">Fitbit Luxe Special Edition</li>
+        <li data-url="Fit/Garmin Vivosmart 5.html" style="color: #ffb400;">Garmin Vivosmart 5</li>
+        <li data-url="Fit/Huawei Band 9 (Ultra-Thin).html" style="color: #ffb400;">Huawei Band 9</li>
+        <li data-url="Fit/Oura Ring Gen3 Heritage.html" style="color: #ffb400;">Fit/Oura Ring Gen3 Heritage</li>
+        <li data-url="Fit/Polar Verity Sense (Armband).html" style="color: #ffb400;">Polar Verity Sense</li>
+        <li data-url="Fit/Samsung Galaxy Fit 3.html" style="color: #ffb400;">Samsung Galaxy Fit 3</li>
+        <li data-url="Fit/WHOOP 4.0 Recovery Band.html" style="color: #ffb400;">WHOOP 4.0 Recovery Band</li>
+        <li data-url="Fit/Withings Pulse HR Tracker.html" style="color: #ffb400;">Withings Pulse HR Tracker</li>
+        <li data-url="Fit/Xiaomi Smart Band 9 Pro.html" style="color: #ffb400;">Xiaomi Smart Band 9 Pro</li>
+        <li data-url="Camera.html" style="color: #ffb400;"> Cameras</li>
+        <li data-url="Camera/Blackmagic Cinema 6K.html" style="color: #ffb400;">Blackmagic Cinema 6K</li>
+        <li data-url="Camera/Canon EOS R5 Mirrorless.html" style="color: #ffb400;">Canon EOS R5 Mirrorless</li>
+        <li data-url="Camera/Canon EOS R10 (Entry Level).html" style="color: #ffb400;">Canon EOS R10</li>
+        <li data-url="Camera/DJI Osmo Pocket 3.html" style="color: #ffb400;">DJI Osmo Pocket 3</li>
+        <li data-url="Camera/Fujifilm X-T5.html" style="color: #ffb400;">Fujifilm X-T5</li>
+        <li data-url="Camera/GoPro HERO 12 Black.html" style="color: #ffb400;">GoPro HERO 12 Black</li>
+        <li data-url="Camera/Insta360 X4 (8K 360 Camera).html" style="color: #ffb400;">Insta360 X4</li>
+        <li data-url="Camera/Leica Q3 Full Frame.html" style="color: #ffb400;">Leica Q3 Full Frame</li>
+        <li data-url="Camera/Nikon Z9 Flagship.html" style="color: #ffb400;">Nikon Z9 Flagship</li>
+        <li data-url="Camera/Panasonic Lumix GH6.html" style="color: #ffb400;">Panasonic Lumix GH6</li>
+        <li data-url="Camera/Sony Alpha A7 IV (Body).html" style="color: #ffb400;">Sony Alpha A7 IV </li>
+        <li data-url="Camera/Sony ZV-E10 (Vlog Camera).html" style="color: #ffb400;"> Sony ZV-E10 (Vlog Camera)</li>
+        <li data-url="Bluetooth_spe.html" style="color: #ffb400;"> Bluetooth Speackers</li>
+        <li data-url="Blue_Spe/B&O Beosound A1 (2nd Gen).html" style="color: #ffb400;">B&O Beosound A1</li>
+        <li data-url="Blue_Spe/Bose SoundLink Revolve+ II.html" style="color: #ffb400;">Bose SoundLink Revolve+ II</li>
+        <li data-url="Blue_Spe/Harman Kardon Onyx Studio 8.html" style="color: #ffb400;">Harman Kardon Onyx Studio 8</li>
+        <li data-url="Blue_Spe/JBL Boombox 3 Wi-Fi.html" style="color: #ffb400;">JBL Boombox 3 Wi-Fi</li>
+        <li data-url="Blue_Spe/JBL Flip 6 Portable Waterproof.html" style="color: #ffb400;">JBL Flip 6 Portable Waterproof</li>
+        <li data-url="Blue_Spe/JBL Go 4 Ultra-Portable.html" style="color: #ffb400;">JBL Go 4 Ultra-Portable</li>
+        <li data-url="Blue_Spe/Marshall Emberton II.html" style="color: #ffb400;">Marshall Emberton II</li>
+        <li data-url="Blue_Spe/Marshall Stanmore III (Home).html" style="color: #ffb400;">Marshall Stanmore III</li>
+        <li data-url="Blue_Spe/Sonos Era 100 Smart Speaker.html" style="color: #ffb400;">Sonos Era 100 Smart Speaker</li>
+        <li data-url="Blue_Spe/Sony SRS-XB100 Compact.html" style="color: #ffb400;">Sony SRS-XB100 Compact</li>
+        <li data-url="Blue_Spe/Sony SRS-XG300 Wireless Party.html" style="color: #ffb400;">Sony SRS-XG300 Wireless Party</li>
+        <li data-url="Blue_Spe/Ultimate Ears Megaboom 3.html" style="color: #ffb400;">Ultimate Ears Megaboom 3</li>
+        
+
+
+
+        
+    </ul>
+</div>
+        <p class="welcome-text">Welcome to Tech Galaxy, your premier destination for the latest in smart technology and innovative gadgets. We bridge the gap between you and the future by offering a curated selection of high-performance smartphones, home automation systems, and cutting-edge wearables. Whether you're looking to upgrade your mobile experience or transform your home into a smart sanctuary, our mission is to provide expert guidance and top-tier devices that simplify and elevate your digital lifestyle. Step into the galaxy of innovation and discover how we can power your world.</p>
+
+        <button class="Explor"><a href="product.html"><p class="ex">Explor More</p></a></button>
+    <button class="my-account" type="button">
+    <p class="ex1">My Account</p>
+</button>
+    </div>
+ 
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+    <script src="login.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>

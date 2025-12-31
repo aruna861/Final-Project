@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Flexbox Center Layout */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #e2e8f0, #cbd5e1);
+            font-family: sans-serif;
+        }
+
+        .card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 { margin-bottom: 1.5rem; color: #333; }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: none;
+            background: #f1f5f9;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        /* Captcha Row */
+        .captcha-row {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            align-items: center;
+        }
+
+        .captcha-display {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 8px;
+            border-radius: 6px;
+            flex: 1;
+            font-weight: bold;
+            letter-spacing: 2px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-reg {
+            width: 100%;
+            padding: 12px;
+            background: #7289da;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .social i { margin: 15px 10px; font-size: 20px; cursor: pointer; }
+        .login-link { font-size: 13px; color: #64748b; margin-top: 10px; }
+        .login-link a { color: #7289da; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Register</h2>
+    <form>
+        <input type="text" placeholder="First Name" required>
+        <input type="text" placeholder="Last Name" required>
+        <input type="email" placeholder="Email" required>
+        <input type="password" placeholder="Password" required>
+        <input type="password" placeholder="Confirm Password" required>
+        
+        <div class="captcha-row">
+            <input type="text" placeholder="Enter text" style="margin:0; flex: 1.5;">
+            <div class="captcha-display">
+                <span id="code">kP7mQ</span>
+                <i class="fas fa-sync-alt" style="cursor:pointer; color:#7289da" onclick="gen()"></i>
+            </div>
+        </div>
+
+        <button type="submit" class="btn-reg"><a href="login.html" style="text-decoration: none; color: white;">Register</a></button>
+    </form>
+
+    <div class="social">
+        <p style="font-size: 12px; color: #64748b;">Or register with</p>
+        <i class="fab fa-google" style="color:#de4032"></i>
+        <i class="fab fa-facebook" style="color:#3b5998"></i>
+        <i class="fab fa-apple"></i>
+    </div>
+
+    <p class="login-link">Already have an account? <a href="#">Login Here</a></p>
+</div>
+
+<script>
+    function gen() {
+        const char = 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz23456789';
+        let res = '';
+        for (let i = 0; i < 5; i++) res += char.charAt(Math.floor(Math.random() * char.length));
+        document.getElementById('code').innerText = res;
+    }
+    window.onload = gen;
+</script>
+
+</body>
+</html>

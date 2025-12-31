@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Orders | TechGalaxy</title>
+<style>
+    :root {
+        --gold: #d4af37;
+        --dark: #111;
+        --bg: linear-gradient(to right,#f9f8f6,#efe9e3,#d9cfc7);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Inter, sans-serif; }
+
+    body { min-height: 100vh; background: var(--bg); padding: 20px; }
+
+    .container { max-width: 900px; margin: auto; }
+
+    .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+    .header h1 { font-size: 2rem; border-bottom: 3px solid var(--gold); display: inline-block; }
+
+    .clear-btn { padding: 8px 18px; border-radius: 20px; border: 1px solid #aaa; background: transparent; cursor: pointer; }
+
+    #orders-list { display: flex; flex-direction: column; gap: 16px; }
+
+    .order-card {
+        background: white;
+        border-radius: 18px;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        border-left: 6px solid var(--gold);
+        animation: fadeUp 0.4s ease;
+    }
+
+    .order-info h3 { font-size: 1.1rem; margin-bottom: 6px; }
+    .meta { font-size: 0.85rem; color: #777; }
+    .status {
+        display: inline-block;
+        padding: 4px 12px;
+        font-size: 0.7rem;
+        font-weight: 700;
+        border-radius: 20px;
+        background: #e8f5e9;
+        color: #2e7d32;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+    }
+
+    .price { font-size: 1.3rem; font-weight: 800; }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(15px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+        .order-card { flex-direction: column; align-items: flex-start; gap: 14px; }
+        .price { align-self: flex-end; }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>My Orders</h1>
+    <button class="clear-btn" onclick="clearOrders()">Clear History</button>
+  </div>
+  <div id="orders-list"></div>
+</div>
+
+<script>
+function loadOrders() {
+  const container = document.getElementById("orders-list");
+  const orders = JSON.parse(localStorage.getItem("userOrders")) || [];
+
+  if (orders.length === 0) {
+    container.innerHTML = `<div style="text-align:center; padding:60px; color:#888;">No orders found yet.</div>`;
+    return;
+  }
+
+  container.innerHTML = orders.map(order => `
+      <div class="order-card">
+        <div class="order-info">
+          <span class="status">${order.status}</span>
+          <h3>${order.name}</h3>
+          <div class="meta">ID: ${order.id} • ${order.date}</div>
+        </div>
+        <div class="price">${order.total}</div>
+      </div>
+  `).join('');
+}
+
+function clearOrders() {
+  if (confirm("Clear all order history?")) {
+    localStorage.removeItem("userOrders");
+    loadOrders();
+  }
+}
+
+window.onload = loadOrders;
+</script>
+
+</body>
+</html>

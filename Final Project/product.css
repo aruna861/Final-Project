@@ -1,0 +1,97 @@
+/* --- Global Resets & Basic Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+body {
+    /* Use a modern, clean, sans-serif font stack */
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    /* A soft, light gray background color */
+    background-color: #f0f2f5;
+    color: #333; /* Dark gray text for better readability than pure black */
+    line-height: 1.6;
+    /* Center content vertically and horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Heading Styles --- */
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1a1a1a; /* A slightly darker shade for the main title */
+    margin-bottom: 40px;
+    text-align: center;
+    letter-spacing: -0.5px;
+}
+
+/* --- List Container (The "Card") --- */
+#itemList {
+    list-style-type: none; /* Remove default bullet points */
+    background-color: #ffffff; /* White background for the card */
+    width: 100%;
+    max-width: 500px; /* Prevents the list from getting too wide */
+    border-radius: 16px; /* Soft, rounded corners */
+    /* A beautiful, subtle shadow to give it depth */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* Ensures child elements don't overflow corners */
+}
+
+/* --- List Item Styles --- */
+#itemList li {
+    /* Add a light separator line between items */
+    border-bottom: 1px solid #f1f1f1;
+}
+
+/* Remove the border from the very last item */
+#itemList li:last-child {
+    border-bottom: none;
+}
+
+/* Styles for the content inside the list items (both links and text) */
+#itemList li,
+#itemList li a {
+    display: block; /* Makes the whole area clickable */
+    padding: 20px 30px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #4a4a4a;
+    text-decoration: none; /* Removes underline from links */
+    cursor: pointer;
+    /* Smooth transition for the hover effect */
+    transition: all 0.3s ease;
+}
+
+/* --- Hover Effects --- */
+#itemList li:hover,
+#itemList li a:hover {
+    background-color: #f8f9fa; /* Slightly darker background on hover */
+    color: #007bff; /* Change text color to a nice blue */
+    padding-left: 40px; /* A subtle "nudge" to the right */
+}
+
+/* NOTE: The !important below is to override the inline `style="color: black..."` 
+   you have on the "Smartphone" link in your HTML. 
+   For cleaner code, you should remove that inline style from your HTML file.
+*/
+#itemList li a:hover {
+    color: #007bff !important;
+}
+/* Style the icons */
+#itemList li i {
+    margin-right: 15px; /* Space between icon and text */
+    color: #007bff;     /* Makes the icons blue to match the theme */
+    width: 25px;        /* Fixed width so all text stays aligned */
+    text-align: center;
+}
+
+/* Ensure the icon changes color on hover too */
+#itemList li:hover i {
+    color: #0056b3;
+}

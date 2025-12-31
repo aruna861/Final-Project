@@ -1,0 +1,246 @@
+/* ===============================
+   BASE STYLES
+================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #000;
+
+    overflow-x: hidden;
+}
+
+/* ===============================
+   VIDEO BACKGROUND
+================================ */
+.backround-clip {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(60%);
+}
+
+/* ===============================
+   MAIN HERO CONTAINER
+================================ */
+.topbar {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.35);
+    padding: clamp(20px, 5vw, 60px);
+}
+
+/* ===============================
+   BRAND TITLE
+================================ */
+.brand {
+    font-size: clamp(3rem, 8vw, 8rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #ffb400;
+    margin-bottom: 20px;
+    letter-spacing: clamp(2px, 1vw, 5px);
+    text-shadow: 0 0 20px rgba(255, 180, 0, 0.5);
+}
+
+/* ===============================
+   SEARCH BAR
+================================ */
+.search-container {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+#searchInput {
+    width: 100%;
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    outline: none;
+    transition: 0.3s;
+}
+
+#searchInput::placeholder {
+    color: #ccc;
+}
+
+#searchInput:focus {
+    border-color: #ffb400;
+    background: rgba(255, 255, 255, 0.2);
+}
+/* YouTube-style Floating Dropdown */
+.search-container {
+    position: relative; 
+    width: 100%;
+    max-width: 600px;
+    z-index: 1000; /* Ensure it stays on top of everything */
+}
+
+#itemList {
+    position: absolute; /* Makes it float over the text below */
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(20, 20, 20, 0.95); 
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 180, 0, 0.3);
+    border-radius: 15px;
+    max-height: 350px;
+    overflow-y: auto;
+    margin-top: 8px !important;
+    padding: 10px 0;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+}
+
+#itemList li {
+    padding: 12px 25px;
+    cursor: pointer;
+    text-align: left;
+    transition: 0.3s;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#itemList li:hover {
+    background: rgba(255, 180, 0, 0.2);
+    color: #fff !important;
+    padding-left: 30px; /* Subtle slide effect on hover */
+}
+
+/* Custom Scrollbar for better look */
+#itemList::-webkit-scrollbar {
+    width: 5px;
+}
+#itemList::-webkit-scrollbar-thumb {
+    background: #ffb400;
+    border-radius: 10px;
+}
+/* ===============================
+   WELCOME TEXT
+================================ */
+.welcome-text {
+    max-width: 850px;
+    font-size: clamp(0.95rem, 2.5vw, 1.1rem);
+    line-height: 1.8;
+    color: #e0e0e0;
+    margin-bottom: 40px;
+    font-weight: 300;
+}
+
+/* ===============================
+   BUTTON GROUP (FIXED)
+================================ */
+.button-group {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Remove default button/link styles */
+.topbar a {
+    text-decoration: none;
+}
+
+/* Shared button styles */
+.Explor{
+    background-color: transparent;
+    border-color: transparent;
+}
+.my-account{
+    background-color: transparent;
+    border-color: transparent;
+}
+.ex, .ex1 {
+    padding: 14px 40px;
+    border-radius: 50px;
+    font-size: clamp(0.85rem, 2.5vw, 1rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #ffb400;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+    text-align: center;
+    background-color: transparent;
+}
+
+/* Outline Button */
+.ex {
+    background: transparent;
+    color: #ffb400;
+}
+
+.ex:hover {
+    background: #ffb400;
+    color: #000;
+    box-shadow: 0 0 20px rgba(255, 180, 0, 0.45);
+    transform: scale(1.05);
+}
+
+/* Solid Button */
+.ex1 {
+    background: #ffb400;
+    color: #000;
+}
+
+.ex1:hover {
+    background-color: transparent;
+    color: #ffb400;
+    box-shadow: 0 0 20px rgba(255, 180, 0, 0.45);
+    transform: scale(1.05);
+}
+
+/* ===============================
+   TABLET OPTIMIZATION
+================================ */
+@media (max-width: 768px) {
+    .topbar {
+        justify-content: flex-start;
+        padding-top: 120px;
+    }
+
+    .welcome-text {
+        margin-bottom: 30px;
+    }
+}
+
+/* ===============================
+   MOBILE OPTIMIZATION
+================================ */
+@media (max-width: 480px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .brand {
+        font-size: 3rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .ex, .ex1 {
+        width: 100%;
+        max-width: 300px;
+    }
+}
